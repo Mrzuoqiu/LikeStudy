@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>我的首页</title>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="/javascripts/js/jquery-3.1.0.js"></script>
+    <script src="/plugin/bootstrap/js/bootstrap.js"></script>
+    <script src="/javascripts/new_file.js"></script>
+    <script src="/javascripts/angular.js"></script>
+    <!--<script src="/javascripts/controller.js"></script>-->
+    <link rel="stylesheet" href="/plugin/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="/stylesheets/style_0.css">
+    <link rel="stylesheet" href="/stylesheets/touxiang.css">
+    <link rel="stylesheet" href="/stylesheets/media.css">
+    <link rel="stylesheet" href="/stylesheets/modify.css">
+</head>
+<body>
+<header>
+    <div ui-view="top" class="top">
+        <img src="images/logo.png" alt="MY社区的logo"/>
+        <img class="logo2" src="/images/zjiti.png" alt="MY社区的logo"/>
+        <div class="clear"></div>
+        <div class="ownUser">
+            <% console.log(user.email) %>
+            <% if(user) { %>
+            <p>
+                <span>欢迎您:</span><span><a href="/userModify"><%= user.userName %></a><img style="width: 2vw;height: 2vw;border-radius: 50%" src=/userpic/<%= user.userpic %> alt=""></span>
+            </p>
+
+            <% }else{ %>
+            <a class="login" data-toggle="modal" data-target=".bs-example-modal-lg">登陆</a>
+            <a class="reg" href="/reg">注册</a>
+
+            <% } %>
+        </div>
+        <div class="clear"></div>
+    </div>
+</header>
+
+<main ng-app="user_Modify">
+    <div class="me" ng-controller="userModify">
+        <form name="modifyForm" ng-submit="processModifyForm(modifyForm.$valid)" novalidate>
+            <div class="meInfo form-group">
+                <b>姓&#x3000;&#x3000;名</b> <span class="meName">
+                        <%= user.userName %>&#x3000;
+                        <a class="edit" href="javascript:;"><span
+                                    class="glyphicon glyphicon-pencil"></span>修改</a></span>
+                <input type="text" class="form-control" name="userName" id="userName" ng-minlength="5"
+                       ng-maxlength="12"
+                       ng-model="modifyFormData.userName" ng-pattern="/^[a-zA-Z][a-zA-Z0-9_]{4,11}$/"
+                       required/>
+                <label style="display:inline-block;width: 250px;font-size: 15px;" ng-cloak for="inputError"
+                       class="control-label text-danger"
+                       ng-show="modifyForm.userName.$invalid && !modifyForm.userName.$pristine"><i
+                            class="glyphicon glyphicon-info-sign"></i> 用户名5-12个英文数字组合</label>
+                <button type="button" class="cancel">取消</button>
+            </div>
+            <div class="meInfo form-group">
+                <b>性&#x3000;&#x3000;别</b> <span class="meSex">
+                        <%= user.sex %>&#x3000;
+                        <a class="edit" href="javascript:;"><span
+                                    class="glyphicon glyphicon-pencil"></span>修改</a></span>
+                <input type="text" class="form-control" name="sex" id="sex" ng-minlength="1"
+                       ng-maxlength="1"
+                       ng-model="modifyFormData.sex"
+                       required/>
+                <label style="display:inline-block;width: 250px;font-size: 15px;" ng-cloak for="inputError"
+                       class="control-label text-danger"
+                       ng-show="modifyForm.sex.$invalid && !modifyForm.sex.$pristine"><i
+                            class="glyphicon glyphicon-info-sign"></i>请正确输入性别</label>
+
+                <button type="button" class="cancel">取消</button>
+            </div>
+            <div class="meInfo form-group">
+                <b>QQ号码 </b><span class="meComments">
+                        <%= user.qq %>&#x3000;
+                        <a class="edit" href="javascript:;"><span
+                                    class="glyphicon glyphicon-pencil"></span>修改</a></span>
+                <input type="text" class="form-control" name="qq" id="qq" ng-minlength="5"
+                       ng-maxlength="11" ng-model="modifyFormData.qq" ng-pattern="/^[0-9]{5,11}$/" required/>
+                <label style="display:inline-block;width: 250px;font-size: 15px;" ng-cloak for="inputError"
+                       class="control-label text-danger"
+                       ng-show="modifyForm.qq.$invalid && !modifyForm.qq.$pristine"><i
+                            class="glyphicon glyphicon-info-sign"></i>QQ在5~11个数</label>
+                <button type="button" class="cancel">取消</button>
+            </div>
+            <div class="meInfo form-group">
+                <b>手机号码 </b><span class="meComments">
+                        <%= user.phoneNum %>&#x3000;
+                        <a class="edit" href="javascript:;"><span
+                                    class="glyphicon glyphicon-pencil"></span>修改</a></span>
+                <input type="text" class="form-control" name="phoneNum" id="phoneNum" ng-minlength="11"
+                       ng-maxlength="11"
+                       ng-model="modifyFormData.phoneNum" ng-pattern="/^[0-9]{5,11}$/"
+                       required/>
+                <label style="display:inline-block;width: 250px;font-size: 15px;" ng-cloak for="inputError"
+                       class="control-label text-danger"
+                       ng-show="modifyForm.phoneNum.$invalid && !modifyForm.phoneNum.$pristine"><i
+                            class="glyphicon glyphicon-info-sign"></i>手机号为11个数字</label>
+                <button type="button" class="cancel">取消</button>
+            </div>
+            <div class="meInfo form-group">
+                <b>所在城市 </b><span class="meComments">
+                        <%= user.city %>&#x3000;
+                        <a class="edit" href="javascript:;"><span
+                                    class="glyphicon glyphicon-pencil"></span>修改</a></span>
+                <input type="text" class="form-control" name="city" id="city" ng-minlength="1"
+                       ng-maxlength="10"
+                       ng-model="modifyFormData.city"
+                       required/>
+                <label style="display:inline-block;width: 250px;font-size: 15px;" ng-cloak for="inputError"
+                       class="control-label text-danger"
+                       ng-show="modifyForm.city.$invalid && !modifyForm.city.$pristine"><i
+                            class="glyphicon glyphicon-info-sign"></i>城市名在1~10个字</label>
+                <button type="button" class="cancel">取消</button>
+            </div>
+            <div class="meInfo form-group">
+                <b>个性签名 </b><span class="meComments">
+                        <%= user.comments %>&#x3000;
+                        <a class="edit" href="javascript:;"><span
+                                    class="glyphicon glyphicon-pencil"></span>修改</a></span>
+                <input type="text" class="form-control" name="comments" id="comments" ng-minlength="1"
+                       ng-maxlength="20"
+                       ng-model="modifyFormData.comments"
+                       required/>
+                <label style="display:inline-block;width: 250px;font-size: 15px;" ng-cloak for="inputError"
+                       class="control-label text-danger"
+                       ng-show="modifyForm.comments.$invalid && !modifyForm.comments.$pristine"><i
+                            class="glyphicon glyphicon-info-sign"></i>个性签名在1~20字之内</label>
+                <button type="button" class="cancel">取消</button>
+            </div>
+            <div class="meInfo form-group">
+                <button role="button" ng-disabled="modifyForm.$invalid" class="btn btn-primary" id="button">提交修改
+                </button>
+            </div>
+        </form>
+
+        <% include web/usermessage %>
+    </div>
+</main>
+
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        $('.meInfo > ul > li').mouseover(function () {
+            $(this).find('.edit').css('display', 'inline-block');
+        })
+        $('.meInfo > ul> li').mouseout(function () {
+            $(this).find('.edit').css('display', 'none');
+        })
+        $('.edit').click(function () {
+            $(this).parents('li').next('.meInput').css('display', 'block');
+            $(this).find('.edit').css('display', 'none');
+        })
+        $('.cancel').click(function () {
+            $(this).parents('.meInput').css('display', 'none');
+        })
+    })
+
+    var user_modify = angular.module('user_Modify', []);
+    user_modify.controller('userModify', function ($scope, $http) {
+        $scope.email = "<%= user.email %>";
+        $http.get('/userInfo?uid=' + $scope.email)
+                .success(function (result) {
+                    $scope.modifyFormData = result;
+                })
+
+        $scope.processModifyForm = function (isVaild) {
+            console.log($scope.modifyFormData);
+            if (isVaild) {
+                $http({
+                    method: 'POST',
+                    url: '/doUserModify',
+                    data: $.param($scope.modifyFormData),
+                    headers: {'Content-type': 'application/x-www-form-urlencoded'}
+                }).success(function (data) {
+                    if (data === 'success') {
+                        alert('修改成功');
+//                        window.location = '/userModify';
+                    } else {
+                        alert('error');
+                    }
+                })
+            } else {
+                alert('输入错误!')
+            }
+        }
+
+
+    });
+
+</script>

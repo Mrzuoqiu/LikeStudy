@@ -1,0 +1,158 @@
+<article>
+    <div class="container" style="margin: 0;width: 240px">
+        <div class="card-container-4" style="margin: 0;position: absolute;left: 150px;top: 60vh;">
+            <div class="card first">
+                <a style="font-size: 30px;text-align: center;line-height: 200px;text-decoration: none;color: #bfd3f8;" href="/index">学知识</a>
+            </div>
+            <div class="card second">
+                <a style="font-size: 30px;text-align: center;line-height: 200px;text-decoration: none;color: #bfd3f8;" href="/useranswer">讲道理</a>
+            </div>
+            <div class="card third">
+                <a style="font-size: 30px;text-align: center;line-height: 200px;text-decoration: none;color: #bfd3f8;" href="/userModify">关于我</a>
+            </div>
+        </div>
+    </div>
+    <div class="question">
+
+        <div class="req_content" ng-app="comment_Add">
+            <div class="req_sign">
+                <% if (doc.selection == 'question') { %>
+                <span class="biaoqian"><%= '提问' %></span>
+                <% } %>
+                <% if (doc.selection == 'share') { %>
+                <span class="biaoqian"><%= '分享' %></span>
+                <% } %>
+            </div>
+            <h4 class="req_title">
+                标题:&nbsp;<b><%= doc.title %></b>
+            </h4>
+            <div class="req_content">
+                内容:<br><%= doc.message %>
+            </div>
+            <div class="req_message">
+                <a class="req_a1" href="javascript:;">
+                    <span class="glyphicon glyphicon-pencil"></span><span class="req_commit">&nbsp;<%= doc.comments.length %><span
+                                class="req_num">&nbsp;条评论</span></span>
+                    <span class="req_commit">&nbsp;&nbsp;&nbsp;&nbsp;<%= doc.pv %><span
+                                class="req_num">&nbsp;次查看</span></span>
+                </a>
+                <a class="req_a2" href=""><span class="glyphicon glyphicon-share-alt"></span><span class="req_share">&nbsp;分享</span></a>
+                <a class="req_a3" href="/author/<%= doc.author %>"><span class="glyphicon glyphicon-user"></span><span
+                            class="req_author">&nbsp;<%= doc.author %></span></a>
+                <a class="req_a2" href="javascript:void(0)"><span class="glyphicon glyphicon-time"></span><span
+                            class="req_author">&nbsp;<%= doc.time %></span></a>
+            </div>
+            <div class="comments" ng-controller="commentAdd">
+                <form name="commentForm" ng-submit="processCommentForm()">
+                    <textarea ng-model="commentFormData.content" name="content" id="content" cols="48"
+                              rows="3"></textarea>
+                    <br/>
+                    <input type="submit" value="提交评论"/>
+                </form>
+            </div>
+            <div class="response">
+                <div class="clickUp">▲<br/>
+                    <p class="click_num">12</p></div>
+                <div class="clickDown">▼</div>
+                <div class="res_content">
+                    <div class="res_author"><span><span class="res_name"><b>东方未明</b></span>&nbsp;，&#x3000;<span
+                                    class="res_sign">日曦人清~</span></span><img
+                                class="res_img" src="/images/0.jpg" alt=""/></div>
+                    <div class="res_answer">快用珍视明滴眼液呀！</div>
+                    <div class="req_message">
+                        <a class="req_a0" href="">发布于<span class="res_time">12:03</span></a>
+                        <a class="req_a3" href=""><span class="glyphicon glyphicon-heart"></span><span
+                                    class="req_thank">&nbsp;感谢</span></a>
+                        <a class="req_a2" href=""><span class="glyphicon glyphicon-share-alt"></span><span
+                                    class="req_share">&nbsp;分享</span></a>
+                    </div>
+                </div>
+            </div>
+            <% doc.comments.forEach(function(comment){ %>
+            <div class="response">
+                <div class="clickUp">▲<br/>
+                    <p class="click_num">0</p></div>
+                <div class="clickDown">▼</div>
+                <div class="res_content">
+                    <div class="res_author"><span><span class="res_name"><b><%= comment.name %></b></span>&nbsp;，&#x3000;<span
+                                    class="res_sign">日曦人清~</span></span><img class="res_img"
+                                                                             src=/userpic/<%= comment.commenterpic %> alt=""/>
+                    </div>
+                    <div class="res_answer"><%= comment.content %></div>
+                    <div class="req_message">
+                        <a class="req_a0" href="">发布于<span class="res_time"><%= comment.time %></span></a>
+                        <a class="req_a3" href=""><span class="glyphicon glyphicon-heart"></span><span
+                                    class="req_thank">&nbsp;感谢</span></a>
+                        <a class="req_a2" href=""><span class="glyphicon glyphicon-share-alt"></span><span
+                                    class="req_share">&nbsp;分享</span></a>
+                    </div>
+                </div>
+            </div>
+            <% }) %>
+        </div>
+        <div class="slideguanzhu">
+
+            <form class="slide_num">
+                <button name="attention">关注问题</button>
+                <span class="res_slide_num">&nbsp;0</span><span>&#x3000;人</span>
+                <br/>
+
+                <% if(user && user.email == doc.email){ %>
+                <a class="btn" style="background-color: #3c3c3c" href="/edit/<%= doc.author %>/<%= doc.id %>">编辑</a>
+                <a class="btn" style="background-color: #3c3c3c" href="/remove/<%= doc.author %>/<%= doc.id %>">删除</a>
+                <% } %>
+            </form>
+
+        </div>
+    </div>
+</article>
+<script src="/javascripts/doc/js/index.js"></script>
+<script>
+    var i = 0;
+    var num = 0;
+    $('.slide_num > button').click(function () {
+        if (i == 0) {
+            num = num + 1;
+            $('.res_slide_num').html('&nbsp;' + num);
+            $('.res_slide_num').css('cursor', 'not-allowed');
+            i = i + 1;
+        }
+
+
+    })
+    //文章评论
+    var comment_Add = angular.module('comment_Add', []);
+    comment_Add.controller('commentAdd', function ($scope, $http) {
+        $scope.processCommentForm = function () {
+            $http({
+                method: 'POST',
+                url: '/doCommentAdd?uid=' + "<%= doc._id %>",
+                data: $.param($scope.commentFormData),
+                headers: {'Content-type': 'application/x-www-form-urlencoded'}
+            }).success(function (data) {
+                if (data === 'success') {
+                    alert('评论成功');
+//                window.location = '/useranswer';
+                    window.location.reload();
+                } else {
+                    alert('error');
+                }
+            })
+        }
+    })
+</script>
+<!--<script>-->
+<!--document.forms[0].onsubmit = function(e){-->
+<!--//    e.preventDefault();-->
+<!--var data = new FormData(this);-->
+<!--var xhr = new XMLHttpRequest();-->
+<!--xhr.onreadystatechange = function(){-->
+<!--if(xhr.readyState == 4 && xhr.status ==200){-->
+<!--var result = JSON.parse(xhr.responseText);-->
+<!--}-->
+<!--}-->
+<!--xhr.open('POST','/article/< doc.author>/<= doc.id >/comments')-->
+<!--xhr.send(data);-->
+<!--}-->
+<!--</script>-->
+<!--<script src="/javascripts/js/comments.js"></script>-->

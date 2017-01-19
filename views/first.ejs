@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="stylesheets/style_0.css">
+    <script src="/javascripts/jquery.js"></script>
+    <script src="/javascripts/quanxian.js"></script>
+    <script src="/plugin/bootstrap/js/bootstrap.js"></script>
+    <script src="/javascripts/new_file.js"></script>
+    <script src="/javascripts/angular.js"></script>
+    <script src="/javascripts/controller.js"></script>
+    <link rel="stylesheet" href="/plugin/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="/stylesheets/lifangti.css">
+    <link rel="stylesheet" href="/stylesheets/media.css">
+
+    <title>Document</title>
+
+</head>
+<body>
+<header>
+    <div ui-view="top" class="top">
+        <a href="/"><img class="lolo1"  src="/images/logo.png" alt="MY社区的logo"/></a>
+        <img class="logo2" src="images/zjiti.png" alt="MY社区的logo"/>
+        <div class="ownUser">
+            <% if(user) {%>
+            <p>
+                <span>欢迎您:</span><span><a href="/userModify"><%= user.userName %><img style="width: 40px;height: 40px;border-radius: 50%" src=/userpic/<%= user.userpic %> alt=""></a><a class="reg" href="/loginout">退出</a></span>
+            </p>
+
+            <% }else{ %>
+            <a class="login" data-toggle="modal" data-target=".bs-example-modal-lg">登陆</a>
+            <a class="reg" href="/reg">注册</a>
+
+            <% } %>
+        </div>
+    </div>
+</header>
+<div id="box">
+    <div class="front"><a href="/index">学知识</a></div>
+    <div class="back"><a href="/index">学知识</a></div>
+    <div class="lifangtop"><a href="/useranswer">讲道理</a></div>
+    <div class="bottom"><a href="/useranswer">讲道理</a></div>
+    <div class="left"><a href="/userModify">关于我</a></div>
+    <div class="right"><a href="/userModify">关于我</a></div>
+</div>
+<div class="dingwei">
+<div class="btns">
+    <a href="/index">成吨资料</a>
+    <a href="/useranswer">你问我答</a>
+    <a href="/userModify">我的信息</a>
+</div>
+</div>
+<!--//模态框-->
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content" ng-app="user_Login">
+            <div class="loginBoard" ng-controller="userLogin">
+                <form name="loginForm" ng-submit="processLoginForm(loginForm.$valid)" novalidate>
+                    <h3>用户登录 &nbsp;<small class="text-danger hide" id="errorInfo">邮箱和密码不匹配</small></h3>
+                    <div class="form-group">
+                        <input style="margin: 0;width: 100%" type="email" class="form-control" name="email" ng-model="logFormData.email" ng-pattern="/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/" placeholder="请填写邮箱"  required>
+                        <label ng-cloak for="inputError" class="control-label text-danger" ng-show="loginForm.email.$invalid && !loginForm.email.$pristine"><i class="glyphicon glyphicon-info-sign"></i> 请填写正确的邮箱地址</label>
+                    </div>
+                    <div class="form-group">
+                        <input style="margin: 0;width: 100%" type="password" class="form-control" name="password" ng-model="logFormData.password" ng-pattern="/(?!^\\d+$)(?!^[a-zA-Z]+$)(?!^[_#@]+$).{5,}/" ng-maxlength="12" placeholder="请输入密码" required>
+                        <label ng-cloak for="inputError" class="control-label text-danger" ng-show="loginForm.password.$invalid && !loginForm.password.$pristine"><i class="glyphicon glyphicon-info-sign"></i> 6-12位，必须包含字母、数字或下划线</label>
+                    </div>
+                    <div id="ul-s5">
+                        <button type="submit" style="font-size:20px;background-color: #0f0f0f;color: white;width: 100%" class="btn btn-default" ng-disabled="loginForm.$invalid">登&nbsp;&nbsp;&nbsp;&nbsp;录</button>&nbsp;
+                        <!--<small><a href="/changePassword" style="text-decoration: none">忘记密码？</a></small>-->
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        $('#box').bxlTab('hanshu');
+
+    })
+</script>

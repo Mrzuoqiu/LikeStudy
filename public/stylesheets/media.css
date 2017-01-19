@@ -1,0 +1,383 @@
+a:hover{
+    text-decoration: none;
+    color: #000000;
+}
+@media (max-width:1080px) and (min-width: 1040px){
+    .top>input{
+        display: none;
+    }
+}
+@media (max-width:1040px) and (min-width: 700px) {
+    .top>input{
+        display: none;
+    }
+    .top>.name{
+        width: 28.8vw;
+        height: 5.76vw;
+        line-height: 5.76vw;
+
+    }
+    .first_sign{
+        line-height: 2.88vw;
+    }
+    .logo2{
+        display: none;
+    }
+    .top>a{
+        font-size: 15px;
+    }
+    .top{
+        width: 100vw;
+        padding-left: 21.12vw;
+    }
+    .login,.reg{
+        width: 60px;
+        height: 33px;
+        border: 1px solid white;
+        line-height: 33px;
+        display: inline-block;
+    }
+
+}
+
+@media screen and (max-width:750px) {
+    .top>input{
+        display: none;
+    }
+    .top>img{
+        height: 40px;
+        float: left;
+        top: 0px;
+        /*display: inline-block;*/
+    }
+    .top>.logo2{
+        display: none;
+    }
+
+    .login,.reg{
+        width: 60px;
+        height: 33px;
+        /*border: 3px solid white;*/
+        line-height: 33px;
+        /*display: inline-block;*/
+    }
+}
+/*资料页面*/
+@media (max-width: 1920px){
+    main{
+        padding-left: 6.25vw;
+        padding-right: 6.25vw;
+    }
+    .all{
+        width: 80vw;
+    }
+    .right{
+        width: 56.68vw;
+    }
+    .left_ul{
+        width: 15.34vw;
+    }
+    .part{
+        padding:25px 0 0 25px;
+    }
+    .content{
+        width: 100%;
+        border-top: 1px solid black;
+        margin-top: 1.04vw;
+    }
+    .book{
+        /*width: 326px;*/
+        background-color: #F6F6F6;
+        margin: 0.552vw 0.572vw 0.552vw 0px;
+        padding: 0.552vw 1.104vw 0.552vw 1.104vw;
+    }
+    .book>img{
+        width: 1.924vw;
+        height: 1.924vw;
+        display: inline-block;
+        margin-right: 0.78vw;
+        vertical-align: middle;
+        float: left;
+    }
+    .part>span{
+        font-size: 1.3vw;
+    }
+    .p_title{
+        font-size: 0.884vw;
+    }
+    .book>span{
+        /*display: inline-block;*/
+        font-size: 0.676vw;
+    }
+}
+@media (max-width: 865px){
+    .part>span{
+        font-size: 11px;
+    }
+    .p_title{
+        font-size: 7.6px;
+    }
+    .book>p:nth-of-type(2){
+        font-size: 10px;
+    }
+    .myheader>div{
+        height: 20px;
+        line-height: 20px;
+    }
+}
+
+@media (max-width: 1920px){
+    /*问题提交表单*/
+    .right>.list_question{
+        width: 56.8vw;
+    }
+    .right>.list_question>li{
+        width: 56.8vw;
+    }
+
+    .bootstrap-frm {
+        width: 26vw;
+        max-width: 26vw;
+        padding: 1.04vw 1.56vw 1.04vw 1.56vw ;
+        font: 0.78vw "myArtFont", Helvetica, Arial, sans-serif;
+        text-shadow: 1px 1px 1px #FFF;
+
+    }
+    .bootstrap-frm h1 {
+        font: 1.45vw "myArtFont", Helvetica, Arial, sans-serif;
+        padding: 0px 0px 0.52vw 2.08vw;
+        margin: -0.52vw -1.56vw 1.56vw -1.56vw;
+    }
+    .bootstrap-frm h1>span {
+        font-size: 0.67vw;
+    }
+    .bootstrap-frm label {
+        margin: 0px 0px 0.26vw;
+    }
+    .bootstrap-frm label>span {
+        width: 20%;
+        padding-right: 0.52vw;
+        margin-top: 0.52vw;
+    }
+    .bootstrap-frm input[type="text"], .bootstrap-frm input[type="email"], .bootstrap-frm textarea, .bootstrap-frm select{
+        /*height: 1.56vw;*/
+        line-height:0.78vw;
+        width: 100%;
+        margin-bottom: 0.79vw;
+        margin-right: 0.32vw;
+        margin-top: 0.32vw;
+        padding:0.26vw 0px 0.26vw;
+    }
+    .bootstrap-frm select {
+        width: 100%;
+        height: 1.82vw;
+        line-height:0.78vw;
+    }
+    .bootstrap-frm textarea{
+        height: 200px;
+        padding:0.26vw 0px 0px 0.26vw;
+        width: 100%;
+    }
+    .bootstrap-frm .button {
+        padding: 0.52vw 1.3vw 0.52vw 1.3vw;
+    }
+
+
+    /*问答页面*/
+    .right>ul{
+        width: 52vw;
+    }
+    .right>ul>li{
+        width: 52vw;
+    }
+    .item_title{
+        height: 2.08vw;
+        background-color: #F6F6F6;
+    }
+    .item_title>a{
+        width: 1.87vw;
+        height: 1.35vw;
+        font-size: 0.78vw;
+        margin-right: 0.78vw;
+    }
+
+    .item_list{
+        height: 2.86vw;
+    }
+    .item_list> a >img{
+        width: 1.27vw;
+        height: 1.27vw;
+
+    }
+    .sp_res{
+        font-size: 0.78vw;
+    }
+    .sp_0 {
+        font-size: 0.52vw;
+    }
+    .sp_read{
+        font-size: 0.52vw;
+    }
+    /*.item_kind{*/
+        /*width: 1.7vw;*/
+        /*height: 1.1vw;*/
+        /*line-height: 1.1vw;*/
+        /*font-size: 0.676vw;*/
+    /*}*/
+    /*.little_title{*/
+        /*font-size: 0.936vw;*/
+    /*}*/
+    /*修改个人资料*/
+    .modifyForm{
+        width: 26vw;
+        height: 41.6vw;
+    }
+    .choose_Ul{
+        width: 15.6vw;
+        height: 13vw;
+    }
+    .form-control{
+        width: 26vw;
+    }
+}
+
+@media  (max-width: 1612px) {
+    .item_title{
+        height: 33px;
+        background-color: #F6F6F6;
+    }
+    .item_title>a{
+        width: 30px;
+        height: 21.76px;
+        font-size: 12.57px;
+        margin-right: 12.57px;
+    }
+}
+
+/*userQuestion页面*/
+
+/*.req_sign{*/
+    /*width: 23.4vw;*/
+    /*height: 1.56vw;*/
+    /*line-height: 1.56vw;*/
+/*}*/
+.sp_1,.sp_2{
+    padding: 0.156vw 5px 0.156vw 0.26vw;
+}
+/*.req_sign>span{*/
+    /*margin-left: 0.26vw;*/
+    /*height: 1.3vw;*/
+    /*padding:0px 0.156vw 0px 0.156vw ;*/
+    /*line-height: 1.3vw;*/
+/*}*/
+.req_message{
+    margin-top: 15px;
+    width: 23.4vw;
+    height: 1.56vw;
+}
+.req_message>a{
+    line-height: 1.56vw;
+}
+.req_a1,.req_a2{
+    margin-right:0.26vw;
+}
+/*回答*/
+.res_num,.response{
+    width: 23.4vw;
+    height: 2.08vw;
+    margin-top: 0.78vw;
+    line-height: 2.08vw;
+}
+.res_img{
+    width: 1.35vw;
+    height: 1.35vw;
+    line-height: 2.08vw;
+}
+.response{
+    height: 6.5vw;
+}
+.clickUp,.clickDown{
+    left: -2.34vw;
+    width: 2.08vw;
+}
+.clickUp{
+    height: 2.34vw;
+    line-height: 1.3vw;
+}
+.clickDown{
+    top: 2.6vw;
+    height: 1.3vw;
+    line-height: 1.3vw;
+}
+.clickUp>p{
+    left: 0.624vw;
+    top: 0.936vw;
+}
+.req_a0{
+    margin-right:0.26vw;
+}
+/*问答的右侧栏*/
+
+
+.my{
+    width: 52vw;
+    margin-top:0.78vw;
+}
+.myTop{
+    width: 52vw;
+    height: 14vw;
+}
+.myContent{
+    width: 52vw;
+    margin-top: 0.78vw;
+}
+.cont_left{
+    /*width: 35.7vw;*/
+}
+.cont_right{
+    width: 15.6vw;
+}
+
+@media (max-width: 1111px){
+    body{
+        overflow-x: hidden;
+    }
+    input.req_title{
+        width: 250px;
+        height: 30px;
+        text-align: left;
+    }
+
+    .clickUp,.clickDown{
+        width: 18.5px;
+        height: 21px;
+    }
+}
+/*单个文章详情*/
+@media (max-width: 1920px) and (min-width: 700px){
+    .one_article{
+        width: 56.5vw;
+        height: 40.04vw;
+        padding: 1.04vw 1.56vw 1.04vw 1.56vw;
+    }
+    .article_title{
+        font-size: 30px;
+    }
+    .article_content{
+        font-size: 15px;
+        text-indent: 2em;
+    }
+}
+@media (max-width: 700px){
+    .one_article{
+        width: 56.5vw;
+        height: 40.04vw;
+        padding: 1.04vw 1.56vw 1.04vw 1.56vw;
+    }
+    .article_title{
+        font-size: 20px;
+    }
+    .article_content{
+        font-size: 10px;
+    }
+}

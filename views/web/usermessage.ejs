@@ -1,0 +1,65 @@
+<div class="touxiang">
+<form class="userpicUpload" enctype="multipart/form-data" action="/doUserTouxiang" method="POST">
+  <ul class="choose_ul">
+    <li class="userPhoto"><img src=/userpic/<%= user.userpic %> alt=""></li>
+    <input class="uploadFile" name="userpic" type="file" id="userpic">
+    <li><input class="chooseBtn" type="button" value="选择头像"><input disabled="disabled" class="upload" type="submit" value="上传"></li>
+  </ul>
+</form>
+  <a class="btn btn-default" href="/changePassword">更换密码</a>
+  <div class="container" style="margin-top: 40px; width: 240px;">
+    <div class="card-container-6" style="margin: 0;">
+      <div class="card">
+        <a style="font-size: 30px;text-align: center;line-height: 200px;text-decoration: none;color: lightskyblue;" href="/index">学知识</a>
+      </div>
+      <div class="card">
+        <a style="font-size: 30px;text-align: center;line-height: 200px;text-decoration: none;color: lightskyblue;" href="/useranswer">讲道理</a>
+      </div>
+      <div class="card">
+        <a style="font-size: 30px;text-align: center;line-height: 200px;text-decoration: none;color: lightskyblue;" href="#">关于我</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<% include footer%>
+<script>
+
+  var userPic = document.querySelector('.userPhoto img')
+  var inputFile = document.querySelector('.uploadFile');
+  var chooseBtn = document.querySelector('.chooseBtn');
+  var upload = document.querySelector('.upload');
+$("input[disabled='disabled']").css('cursor','not-allowed')
+  chooseBtn.onclick = function () {
+    inputFile.click();
+  }
+  userPic.onclick = function () {
+    inputFile.click();
+  }
+  inputFile.onchange = function () {
+//      console.dir(this);
+//      console.log(this.files[0]);
+    $('.upload').css('cursor','pointer')
+    upload.removeAttribute('disabled');
+
+    var file = this.files[0];
+    if(file){
+      if(file.type.startsWith('image')) {
+        //创建一个指向该文件的路径
+        var src = URL.createObjectURL(file);
+//              console.log(src);
+        userPic.src = src;
+      }else {
+        alert('请选择图片文件');
+      }
+
+    }else {
+      //没有的选择图片的话禁止点击上传 使用bootstarp的按钮禁止 将class类名添加上
+      //然而忘了源生JS的添加  属性名:属性值  怎么写-.-
+      //如果禁止的话 就将对应的路由里面的if(){} else{res.end()}删掉
+//          upload.attribute();
+    }
+  }
+
+</script>

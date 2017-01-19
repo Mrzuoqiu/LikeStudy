@@ -1,0 +1,45 @@
+<article>
+    <div class="container" style="margin-top: 40px;width: 240px;position: absolute;left: 150px;top: 60vh;">
+        <div class="card-container-5" style="margin: 0;">
+            <div class="card">
+                <a style="font-size: 30px;text-align: center;line-height: 200px;text-decoration: none;color: #bfd3f8;"
+                   href="/index">学知识</a>
+            </div>
+            <div class="card">
+                <a style="font-size: 30px;text-align: center;line-height: 200px;text-decoration: none;color: #bfd3f8;"
+                   href="/useranswer">讲道理</a>
+            </div>
+            <div class="card">
+                <a style="font-size: 30px;text-align: center;line-height: 200px;text-decoration: none;color: #bfd3f8;"
+                   href="/userModify">关于我</a>
+            </div>
+        </div>
+    </div>
+    <div class="question">
+        <div class="req_content">
+            <form method="POST" action="/updateArc/<%= doc.author %>/<%= doc.id %>">
+                <div class="req_sign">
+                    <% if (doc.selection == 'question') { %>
+                    <span class="biaoqian"><%= '提问' %></span>
+                    <% } %>
+                    <% if (doc.selection == 'share') { %>
+                    <span class="biaoqian"><%= '分享' %></span>
+                    <% } %>
+                </div>
+                <br/>
+                <span class="sp_edit">题目:</span> <br/>
+                <input class="req_title" name="title" value="<%= doc.title %>">
+                <br/>
+                <br/>
+                <span class="sp_edit">内容:</span>
+                <textarea style="white-space: pre-wrap;word-break: break-all;word-wrap: break-word" cols="30" rows="20"
+                          name="message" class="req_content">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= doc.message %>
+                </textarea>
+                <br/>
+                <input class="edit_submit" type="submit" value="保存修改"/>
+            </form>
+        </div>
+    </div>
+</article>
+<script src="/javascripts/doc/js/index.js"></script>

@@ -1,0 +1,108 @@
+html,body{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+body{
+    height:100%;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: url("../images/424075.jpg");
+    background-attachment: fixed;
+    margin: 0;
+    overflow-x: hidden;
+}
+@media (max-width: 1920px){
+    main{
+        padding-top:100px;
+    }
+    .me{
+        width: 50vw;
+        font-size: 1.4vw;
+    }
+    .meImg{
+        width: 6.76vw;
+        height: 10.4vw;
+        float: left;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .meImg>input{
+        width: 2.6vw;
+        height: 1.456vw;
+    }
+    #upload{
+        width: 6.76vw;
+    }
+    .clear{ height:0px;font-size:0;clear:both;}
+    .meJPG{
+        width: 6.65vw;
+        height: 6.65vw;
+    }
+    .meInfo{
+        width: 26vw;
+        padding-top: 1.56vw;
+    }
+    .meInfo>ul>li{
+        padding: 2.08vw 1.04vw 0px 1.04vw;
+        margin-bottom: 1.56vw;
+    }
+
+    a.edit>span{
+        padding-left: 1.04vw;
+        display: inline-block;
+    }
+    .myForm{
+        margin-left: 7.5vw;
+        position: absolute;
+        margin-top: -3.5vw;
+        display: none;
+    }
+    .meInput{
+        width: 20.8vw;
+        margin-bottom: 0.5vw;
+    }
+    .meImg>form {
+        padding: 0.5vw;
+    }
+    .meImg>form >input{
+        margin-left: 3.64vw;
+    }
+    #chooseimg>img {
+        width: 6.76vw;
+        height: 6.76vw;
+    }
+    .meImg>form>div>input{
+        display: none;
+    }
+}
+
+@media (max-width: 1110px) {
+    .me{
+        font-size: 14px;
+    }
+    .meInput{
+        width: 120px;
+    }
+    .myForm{
+        margin-left: 68px;
+        margin-top: -30px;
+    }
+    #userSubmit{
+        width: 38px;
+        padding: 1px 3px 1px 3px;
+    }
+    #chooseimg>img {
+        /*width: 38px;*/
+        /*height: 38px;*/
+    }
+}
+
+@media (max-width: 600px){
+    #chooseimg>img {
+        width: 41px;
+        height: 41px;
+    }
+}

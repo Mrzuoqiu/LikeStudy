@@ -1,0 +1,54 @@
+<main>
+    <div ui-view="left" class="grade">
+        <ul class="left_ul list-group">
+            <li class="list-group-item item1"><span class="tubiao glyphicon glyphicon-th-list"></span>&#x3000;全部教程</li>
+            <li class="list-group-item" style="background-color: #444444"><a class="a1" href="/index/mm/one/ww">初一</a></li>
+            <li class="list-group-item"><a class="a2" href="/index/mm/two/ww">初二</a></li>
+            <li class="list-group-item" style="background-color: #444444"><a class="a1" href="/index/mm/two/ww">初三</a></li>
+            <li class="list-group-item"><a class="a2" href="">高一</a></li>
+            <li class="list-group-item" style="background-color: #444444"><a class="a1" href="">高二</a></li>
+            <li class="list-group-item"><a class="a2" href="">高三</a></li>
+        </ul>
+        <div class="container" style="margin-top: 40px;width: 240px">
+            <div class="card-container-1" style="margin: 0;">
+                <div class="card">
+                    <a style="font-size: 30px;text-align: center;line-height: 200px;text-decoration: none;color: #bfd3f8;" href="/index">学知识</a>
+                </div>
+                <div class="card">
+                    <a style="font-size: 30px;text-align: center;line-height: 200px;text-decoration: none;color: #bfd3f8;" href="/useranswer">讲道理</a>
+                </div>
+                <div class="card">
+                    <a style="font-size: 30px;text-align: center;line-height: 200px;text-decoration: none;color: #bfd3f8;" href="#">关于我</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ui-view="right" class="right">
+        <div class="part">
+            <span class="glyphicon glyphicon-th-list"></span><span class="sp_title"><b>&#x3000;初一教材</b></span>
+            <div class="content">
+                <% books.forEach(function (book) { %>
+                <div class="book">
+
+                    <p class="p_title">
+                        <%= book.title %>
+                        <%= book.author %>
+                        <%= book.lesson %>
+                        <%= book.content %>
+
+                    </p>
+                    <p>
+                        <!--希望字体可以左边对齐~~~~~~~~~~~~~~~~~~~~~~-->
+                        <!--<img src="images/0.jpg" alt=""/>-->
+                        <%= book.grade %>
+                    </p>
+
+                </div>
+                    
+                <% }) %>
+
+            </div>
+        </div>
+    </div>
+</main>
+<script src="/javascripts/doc/js/index.js"></script>

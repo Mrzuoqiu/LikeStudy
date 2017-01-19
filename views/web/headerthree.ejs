@@ -1,0 +1,28 @@
+
+<% var th = path; %>
+<% console.log(th); %>
+<% var f_path = ''; %>
+<% for(var i = th.length - 1;i >= 0;i--){ %>
+<% f_path = f_path + th[i]; %>
+<% } %>
+<% var my_path = f_path.toString(); %>
+<% var z_path = my_path.replace(/[a-z]{1,}(\w+?)\//,''); %>
+<% var re_path = ''; %>
+<% console.log(z_path); %>
+<% for(var q=z_path.length - 1;q>=0;q--){ %>
+<% re_path = re_path + z_path[q]; %>
+<% } %>
+<% console.log(re_path); %>
+<div ui-view="header" class="row myheader">
+  <div class="col-lg-offset-1 col-lg-1 col-md-4 col-xs-6"><p><a href="/index">全部</a></p></div>
+  <div ui-sref="chinese" class="col-lg-1 col-md-4 col-xs-6"><p><a href="/index/chinese/zz">语文</a></p></div>
+  <div ui-sref="math" class="col-lg-1 col-md-4 col-xs-6"><p><a href="/index/math/zz">数学</a></p></div>
+  <div ui-sref="english" class="col-lg-1 col-md-4 col-xs-6"><p><a href="/index/english/zz">英语</a></p></div>
+  <div ui-sref="physics" class="col-lg-1 col-md-4 col-xs-6"><p>物理</p></div>
+  <div ui-sref="chemistry" class="col-lg-1 col-md-4 col-xs-6"><p>化学</p></div>
+  <div ui-sref="biology" class="col-lg-1 col-md-3 col-xs-6"><p>生物</p></div>
+  <div ui-sref="geography" class="col-lg-1 col-md-3 col-xs-6"><p>地理</p></div>
+  <div ui-sref="politics" class="col-lg-1 col-md-3 col-xs-6"><p>政治</p></div>
+  <div ui-sref="history" class="col-lg-1 col-md-3 col-xs-6"><p>历史</p></div>
+</div>
+

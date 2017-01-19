@@ -1,0 +1,288 @@
+html{
+    height: 100%;
+}
+
+ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+a:hover{
+    text-decoration: none;
+    color: white;
+}
+header{
+    background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#ABA7A3), to(black));
+}
+body{
+    margin: 0;
+    height: 100%;
+    background-image: url(../images/background.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    overflow-x: hidden;
+    /*设置背景图固定，不随内容滚动*/
+}
+.dingwei{
+    width: 750px;
+    height: 62px;
+    margin: 0 auto;
+    bottom: 10%;
+    left: calc(50% - 375px);
+    position: absolute;
+
+}
+.btns{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+@font-face {
+    font-family: 'myArtFont';
+    src: url('../images/art_font.ttf');
+}
+
+.btns>a{
+    display: inline-block;
+    width: 234px;
+    height: 62px;
+    /*margin-right: 6px;*/
+    background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#ABA7A3), to(black));
+    color:lightgray;
+    line-height: 62px;
+    text-align: center;
+    text-decoration: none;
+    border: 0px;
+    font-size: 20px;
+    font-family: 'myArtFont';
+    opacity: 0.9;
+    border-radius: 5px;
+}
+.top>.name{
+    display: block;
+    width: 180px;
+    height: 40px;
+    text-decoration: none;
+    float: left;
+    position: relative;
+    left: 200px;
+}
+/*ss*/
+.top>.name{
+    width: 500px;
+    height: 60px;
+}
+
+.first_sign{
+    line-height: 30px;
+}
+.top>a{
+    font-size: 15px;
+}
+.top{
+    margin: 0;
+    width: 100vw;
+    height: 60px;
+    color:gray;
+    position: relative;
+    padding-left: 10vw;
+}
+
+.top>a>img{
+    height: 60px;
+    /*!*float: left;*!*/
+    /*top: 0px;*/
+    /*display: inline-block;*/
+}
+.top>img{
+    height: 60px;
+    /*float: left;*/
+    /*top: 0px;*/
+    /*display: inline-block;*/
+}
+.top> form >input{
+    float:right;
+    position: relative;
+    width: 400px;
+    height: 35px;
+    right:220px ;
+    top: 15px;
+}
+.ownUser{
+    width: 300px;
+    height: 60px;
+    padding-top: 10px;
+    float: right;
+    right: 1vw;
+    top: 0px;
+    display: inline-block;
+}
+.ownUser img{
+    margin: 0 15px;
+}
+.ownUser a{
+    font-size: 16px;
+    color: white;
+    text-decoration: none;
+
+}
+.ownUser span{
+    font-size: 20px;
+}
+
+
+/*用户登录*/
+.login,.reg{
+    color: white;
+    width: 60px;
+    height: 34px;
+    background-color: #444444;
+    border-radius: 10px;
+    border: 1px solid white;
+    text-align: center;
+    line-height: 34px;
+    display: inline-block;
+    text-decoration: none;
+
+}
+.reg:hover{
+    color: #555555;
+    background-color: #eeeeee;
+    text-decoration: none;
+}
+.login:hover{
+    color: #555555;
+    background-color: #eeeeee;
+    text-decoration: none;
+}
+.login,.reg{
+    cursor: pointer;
+}
+
+.loginBoard h3, .regBoard h3, .conformBoard h3, .reSetPsdBoard h3, .noticeBoard h3 {
+    color: #6e7173;
+    font-size: 16px;
+}
+.modal-content{
+    padding: 20px 15px 15px 20px;
+}
+
+/*个人修改页面*/
+main{
+    width: 100%;
+    height: auto;
+    padding-top: 80px;
+}
+.me{
+    width: 1150px;
+    height: auto;
+    margin: 0 auto;
+    font-family: myArtFont;
+    font-size: 20px;
+
+}
+.meImg{
+    width: 130px;
+    height: 200px;
+    float: left;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.meImg>input{
+    width: 50px;
+    height: 28px;
+}
+#upload{
+    width: 130px;
+    height: auto;
+}
+.clear{ height:0px;font-size:0;clear:both;}
+.meJPG{
+    width: 128px;
+    height: 128px;
+    border: 1px solid lightgray;
+}
+.meInfo{
+    width: 500px;
+    padding-top: 30px;
+    float: right;
+}
+.meInfo b{
+    color: snow;
+}
+.meInfo input{
+    border: none;
+    /*background-image: url("../images/input.png");*/
+    /*background-size: 100% 100%;*/
+    /*background-repeat: no-repeat;*/
+    color: #454545;
+    font-size: 18px;
+    /*opacity: 0;*/
+}
+.meInfo span{
+    color: lightgoldenrodyellow;
+}
+.meInfo>ul>li{
+    padding: 40px 20px 0px 20px;
+    margin-bottom: 30px;
+}
+
+a.edit{
+    display: none;
+}
+/*/////////////////////////////////////////////////s*/
+.modifyForm{
+    width: 500px;
+    height: 800px;
+    display: inline-block;
+}
+
+.form-control{
+    width: 500px;
+    display: none;
+}
+.choose_Ul{
+    width: 300px;
+    height: 250px;
+}
+/*/////////////////////////////////////////////////s*/
+
+a.edit>span{
+    padding-left: 20px;
+    display: inline-block;
+}
+.myForm{
+    margin-left: 110px;
+    position: absolute;
+    margin-top: -60px;
+    display: none;
+}
+.meInput{
+    width: 400px;
+    margin-bottom: 10px;
+}
+.meImg>form {
+    padding: 10px;
+}
+.meImg>form >input{
+    margin-left: 70px;
+}
+#chooseimg>img {
+    width: 130px;
+    height: 130px;
+}
+.meImg>form>div>input{
+    display: none;
+}
+
+.cancel{
+    display: none;
+}

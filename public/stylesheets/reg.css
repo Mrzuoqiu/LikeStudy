@@ -1,0 +1,102 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+body{
+    width: 100%;
+    height: 100%;
+    background-image:url("../images/regbj.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin: 0;
+
+}
+main{
+    width: 450px;
+    float: none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 15px;
+    font-family: 微软雅黑;
+}
+#button{
+    width: 450px;
+    border: 1px solid #b94c3d;
+    color: #fff;
+    background: #a23526;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 20px;
+    padding: 0px;
+    margin-top: 30px;
+
+
+}
+#back{
+    width: 450px;
+    border: 1px solid #b94c3d;
+    color: #fff;
+    background: #a23526;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 20px;
+    padding: 0px;
+    /*margin: 30 0;*/
+}
+.form input{
+    border: 1px solid #424242;
+    background: rgba(0,0,0,0.4);
+    position: relative;
+    padding: 0 30px 0 15px;
+    height: 37px;
+    line-height: 35px;
+    margin-bottom: 17px;
+    color: #dbdbdb;
+    margin:5px 0px;
+}
+.form label{
+    color: #2aabd2;
+    font-size: 16px;
+    padding-top: 5px;
+}
+.logo{
+    width: 333px;
+    margin: 0px auto;
+
+}
+.logo a{
+    margin: -15px;
+    box-sizing: border-box;
+    padding-left: 50px;
+    text-align: center;
+    display: flex;
+}
+
+.logo img{
+    width: 250px;
+    height: 200px;
+    margin: 0;
+
+}
+#h2{
+    font-size: 28px;
+    text-align: center;
+    color: #CCC;
+    margin: 0;
+    /*line-height: 1;*/
+    font-family: Microsoft Yahei;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+}
+a{
+    text-decoration: none;
+    /*float: right;*/
+    margin: 20px;
+}
+
+
+

@@ -1,0 +1,195 @@
+<main ng-app="article_Add" ng-controller="articleAdd">
+    <div>
+        <div class="left" class="regBoard">
+            <form name="articleForm" class="bootstrap-frm" ng-submit="processArticleForm()">
+                <div class="form-group" style="margin: 0">
+                    <label>问题标题:</label>
+                    <input type="text" class="form-control" name="title" id="title" ng-model="articleFormData.title"
+                           placeholder="请输入问题标题" required/>
+                </div>
+                <div class="form-group" style="margin: 0">
+                    <label>详细描述:</label>
+                    <textarea id="message" name="message" class="form-control" ng-model="articleFormData.message"
+                              placeholder="请详细填写你的描述" required></textarea>
+                </div>
+                <div class="form-group" style="margin: 0">
+                    <label>内容分类 :</label><select name="selection" id="selection" class="form-control"
+                                                 ng-model="articleFormData.selection">
+                        <option value="question" selection="selected">问题</option>
+                        <option value="share">分享</option>
+                    </select>
+                </div>
+                <div>
+                    <button class="btn btn-default" role="button">提交</button>
+                </div>
+            </form>
+            <div class="container" style="margin-top:30px;width: 240px;">
+                <div class="card-container-2" style="margin: 10px;">
+                    <div class="controller right"></div>
+                    <div class="controller left"></div>
+                    <div class="card-holder">
+                        <div class="card">
+                            <a style="font-size: 30px;text-align: center;line-height: 200px;text-decoration: none;color: #bfd3f8;"
+                               href="/index">学知识</a>
+                        </div>
+                        <div class="card">
+                            <a style="font-size: 30px;text-align: center;line-height: 200px;text-decoration: none;color: #bfd3f8;"
+                               href="/useranswer">讲道理</a>
+                        </div>
+                        <div class="card">
+                            <a style="font-size: 30px;text-align: center;line-height: 200px;text-decoration: none;color: #bfd3f8;"
+                               href="/userModify">关于我</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <div ui-view="right" class="right">
+        <ul class="list_question list-group">
+            <li style="height: 40px" class="list-group-item item_title">
+                <a style="font-size: 20px;text-decoration: none" href="/useranswer">全部</a>
+                <a style="font-size: 20px;text-decoration: none" href="/useranswer/request">问答</a>
+                <a style="font-size: 20px;text-decoration: none" href="/useranswer/share">分享</a>
+                <% docs.forEach(function(doc){ %>
+            <li class="list-group-item item_list">
+                <a style="text-decoration: none" href="/article/<%= doc.author %>/<%= doc._id %>/<%= doc.title %>">
+                    <img style="height: 40px;width: 40px;border-radius: 50%" src=/userpic/<%= doc.authorpic %> alt=""/>
+                    <span class="sp_res"><%= doc.comments.length %></span><span class="sp_0">/</span><span class="sp_read"><%= doc.pv %></span>
+                    <div style="font-size: 16px" class="item_kind">
+                        <% if (doc.selection == 'question') { %>
+                        <%= '提问' %>
+                        <% } %>
+                        <% if (doc.selection == 'share') { %>
+                        <%= '分享' %>
+                        <% } %>
+                    </div>
+                    <div class="little_title"><%= doc.title %> </div>
+                    <div class="little_author" style="float: right;display: inline-block">
+                        <% if(user && user.email == doc.email){ %>
+                        <a href="/edit/<%= doc.author %>/<%= doc.id %>">编辑</a>
+                        <a href="/remove/<%= doc.author %>/<%= doc.id %>">删除</a>
+                        <% } %>
+                        <a style="text-decoration: none" href="/author/<%= doc.author %>">by&#x3000;<%= doc.author %></a>
+                    </div>
+                    <% }) %>
+
+                    <!--回复人的头像和回复的时间-->
+                </a>
+            </li>
+        </ul>
+
+    </div>
+    <!--<div ng-cloak>-->
+        <!--<ul class="pagenum">-->
+            <!--<li ng-click="pageClick(tag,1)">首页</li>-->
+            <!--<li ng-repeat="list in pageList">-->
+            <!--<li ng-click="pageClick(tag,list)">{{list}}</li>-->
+            <!--<br>-->
+            <!--</li>-->
+            <!--<li ng-click="pageClick(tag,pageCount)">尾页</li>-->
+        <!--</ul>-->
+    <!--</div>-->
+</main>
+<script src="/javascripts/doc/js/index.js"></script>
+<script>
+    var article_Add = angular.module('article_Add', []);
+    article_Add.controller('articleAdd', function ($scope, $http) {
+        $scope.pageNum = 15;
+        $scope.page = 1;
+        $scope.tag = 'all';
+        <!--$scope.articleFormData = {};-->
+        $scope.processArticleForm = function () {
+            $http({
+                method: 'POST',
+                url: '/doArticleAdd',
+                data: $.param($scope.articleFormData),
+                headers: {'Content-type': 'application/x-www-form-urlencoded'}
+            }).success(function (data) {
+                if (data == 'success') {
+                    console.log(data);
+                    alert('发表成功');
+                    window.location = '/useranswer';
+                    // console.log(data);
+                } else {
+                    alert('出错');
+                }
+            })
+        }
+//        $http.get('/articleTotle?tag=all&page=1')
+//                .success(function (result) {
+//                    $scope.articles = result;
+//                    $scope.allLengtn = $scope.articles.pop();
+//                    if ($scope.allLengtn % $scope.pageNum == 0) {
+//                        $scope.pageCount = parseInt($scope.allLengtn / $scope.pageNum);
+//                    } else {
+//                        $scope.pageCount = parseInt($scope.allLengtn / $scope.pageNum) + 1;
+//                    }
+//                    $scope.pageList = [];
+//                    if ($scope.pageCount < 5) {
+//                        for (var i = 0; i < $scope.pageCount; i++) {
+//                            $scope.pageList.push(i + 1);
+//
+//                        }
+//                        console.log($scope.pageList);
+//                    } else {
+//                        if ($scope.page < 3) {
+//                            for (var i = 0; i < 5; i++) {
+//                                $scope.pageList.push(i + 1);
+//                            }
+//                        } else if ($scope.page < ($scope.pageCount - 2)) {
+//                            for (var i = $scope.page - 3; i < $scope.page + 2; i++) {
+//                                $scope.pageList.push(i + 1);
+//                            }
+//                        } else {
+//                            for (var i = ($scope.pageCount - 5); i < $scope.pageCount; i++) {
+//                                $scope.pageList.push(i + 1);
+//                            }
+//                        }
+//                        console.log($scope.pageList);
+//
+//                    }
+//
+//                })
+//        function pageClick(tag, pages){
+//            $scope.tag = tag;
+//            $scope.page = pages;
+//            $http.get('/article_Totle?tag= + 'tag' + &page= + 'pages').success(function (result) {
+//                $scope.articles = result;
+//                $scope.allLengtn = $scope.articles.pop();
+//                if ($scope.allLengtn % $scope.pageNum == 0) {
+//                    $scope.pageCount = parseInt($scope.allLengtn / $scope.pageNum);
+//                } else {
+//                    $scope.pageCount = parseInt($scope.allLengtn / $scope.pageNum) + 1;
+//                }
+//                $scope.pageList = [];
+//                if ($scope.pageCount < 5) {
+//                    for (var i = 0; i < $scope.pageCount; i++) {
+//                        $scope.pageList.push(i + 1);
+//
+//                    }
+//                    console.log($scope.pageList);
+//                } else {
+//                    if ($scope.page < 3) {
+//                        for (var i = 0; i < 5; i++) {
+//                            $scope.pageList.push(i + 1);
+//                        }
+//                    } else if ($scope.page < ($scope.pageCount - 2)) {
+//                        for (var i = $scope.page - 3; i < $scope.page + 2; i++) {
+//                            $scope.pageList.push(i + 1);
+//                        }
+//                    } else {
+//                        for (var i = ($scope.pageCount - 5); i < $scope.pageCount; i++) {
+//                            $scope.pageList.push(i + 1);
+//                        }
+//                    }
+//                    console.log($scope.pageList);
+//
+//                }
+//
+//            })
+    })
+
+</script>

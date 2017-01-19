@@ -1,0 +1,49 @@
+<div class="my">
+    <div class="myTop">
+        <img src=/userpic/<%= user.userpic %> alt=""/>
+        <div class="tUp"></div>
+        <div class="tDown">
+            <div class="tDown_name">
+                <div class="tDown_box">
+                    <span class="myName"><b><%= signs.userName %></b></span>
+                    <span class="mySign">&#x3000;&#x3000;
+                        <% if(signs.comments) {%>
+                        <%= signs.comments%>
+                        <% } %>
+                    </span>
+                    <!--<button class="myEdit">编辑个人资料</button>-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="myContent">
+        <div class="cont_left">
+            <div class="cont_title">
+                <ul class="cont">
+                    <li><a href="">提问<span class="res_sum">&nbsp;0</span></a></li>
+                    <li><a href="">分享<span class="share_sum">&nbsp;0</span></a></li>
+                    <li><a href="">关注<span class="attention_sum">&nbsp;0</span></a></li>
+                </ul>
+                <ul class="my_zone">
+                    <li class="zone_0"><b>我的提问</b></li>
+                    <li class="zone_00">
+                        <span class="z_about">发布了问题</span>
+                        <span class="z_time">13:32</span><br/><br/>
+                        <a class="z_title">Angular2与React，前端的未来志向何方？</a>
+                    </li>
+                    <% docs.forEach(function(doc){ %>
+                    <li class="zone_00">
+                        <span class="z_about">发布了问题</span>
+                        <span class="z_time">13:32</span><br/><br/>
+                        <a class="z_title"><%= doc.title %></a>
+                    </li>
+                    <% }) %>
+                </ul>
+            </div>
+        </div>
+        <!--<div class="cont_right">-->
+            <!--<div class="z_left"><p>关注了 <br/><span class="z_num0">53</span></p></div>-->
+            <!--<div class="z_right"><p>关注者 <br/><span class="z_num1">16</span></p></div>-->
+        <!--</div>-->
+    </div>
+</div>
